@@ -25,10 +25,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: fugerit-org/psychic-actions/build-maven-package@main
+      - uses: fugerit-org/psychic-actions/maven-build-scan@v1
         with:
-          java-version: '21'
-          java-vendor: 'oracle'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           sonar-token: ${{ secrets.SONAR_TOKEN }}
           disable-maven-dependency-submission: ${{ vars.DISABLE_MAVEN_DEPENDENCY_SUBMISSION }}
