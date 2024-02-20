@@ -27,6 +27,6 @@ jobs:
     steps:
       - uses: fugerit-org/psychic-actions/build-maven-package@main
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          sonarToken: ${{ secrets.SONAR_TOKEN }}
-          mavenDisableDependency: ${{ vars.DISABLE_MAVEN_DEPENDENCY_SUBMISSION }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
+          disable-maven-dependency-submission: ${{ vars.DISABLE_MAVEN_DEPENDENCY_SUBMISSION }}
