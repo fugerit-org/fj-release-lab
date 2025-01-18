@@ -1,0 +1,29 @@
+name: CI test workflow
+
+on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request.
+  push:
+    branches:
+      - branch-test
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+  release:
+    types: [published]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: test-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check event name
+        run: echo ${{ github.event_name }}
+      - name: Check ref
+        run: echo ${{ github.ref }}
